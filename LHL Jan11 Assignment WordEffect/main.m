@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
     printf("%d", selection);
     NSLog(@"%@", inputString);
     
-    while (selection >6) {
+    while (selection != 7) {
     
         if (selection == 1) {
             inputString = [inputString uppercaseString];
@@ -49,11 +49,15 @@ int main(int argc, const char * argv[]) {
             NSLog(@"%@", inputString);
         }
         else if (selection == 5) {
-            
+            if ([inputString containsString:@"?"]) {
+                NSLog(@"I don't know.");
+            }
+            else if ([inputString containsString:@"!"])
+                NSLog(@"Whoa, calm down!");
         }
         else if (selection == 6) {
-            inputString = [inputString stringByReplacingOccurrencesOfString:@"1" withString:@"-"];
-            NSLog(@"%@", inputString);
+            NSString *newString = [inputString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+            NSLog(@"%@", newString);
         }
 
     }
